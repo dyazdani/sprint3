@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Object basics: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+    let bandInfo;
+
+    // Add your code here
+const myBand = {
+    name: "Queen",
+    nationality: "British",
+    genre: "rock",
+    members: 4,
+    formed: 1970,
+    split: false,
+    albums: [
+        {
+            name: "A Night at the Opera",
+            released: 1975
+        },
+        {
+            name: "News of the World",
+            released: 1977
+        }
+    ]
+}
+
+bandInfo = "The band " + myBand.name + " has been creating " + myBand.nationality + " " + myBand.genre + " music since " + myBand.formed + ". They release their famous album " + myBand.albums[0].name + " in " + myBand.albums[0].released + ".";
+
+    // Don't edit the code below here!
+
+    const section = document.querySelector('section');
+    let para1 = document.createElement('p');
+    para1.textContent = bandInfo;
+    section.appendChild(para1);
+  </script>
+
+</html>
