@@ -98,7 +98,6 @@ class EvilCircle extends Shape {
       }
     });
   }
-  
   draw() {
     ctx.beginPath();
     ctx.strokeStyle = this.color;
@@ -108,22 +107,34 @@ class EvilCircle extends Shape {
   }
   checkBounds() {
     if ((this.x + this.size) >= width) {
-      this.x = this.x - this.size;
+      this.x = width - this.size;
     }
   
     if ((this.x - this.size) <= 0) {
-      this.x = this.x + this.size;
+      this.x = width + this.size;
     }
   
     if ((this.y + this.size) >= height) {
-      this.y = this.y - this.size;
+      this.y = height - this.size;
     }
   
     if ((this.y - this.size) <= 0) {
-      this.y = this.y + this.size;
+      this.y = height + this.size;
     }
   }
-}
+  collisionDetect() {
+    for (const ball of balls) {
+      if (ball.exists) {
+          var dx = this.x - balls[j].x;
+          var dy = this.y - balls[j].y;
+          var distance = Math.sqrt(dx * dx + dy * dy);
+      }
+        if (distance < this.size + ball.size) {
+          ball.exists = false;
+        }
+      }
+    }
+  }
 const balls = [];
 
 while (balls.length < 25) {
