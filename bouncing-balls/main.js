@@ -19,6 +19,12 @@ function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
 
+// Placing score in paragraph element
+// is this how you do it?let pScore = document.querySelector('p');
+
+let score = 0;
+
+// defining Shape class
 class Shape {
    constructor(x, y, velX, velY) {
       this.x = x;
@@ -28,6 +34,7 @@ class Shape {
    }
 }
 
+// defining Ball subclass
 class Ball extends Shape {
     constructor(x, y, velX, velY, color, size) {
       super(x, y, velX, velY);
@@ -76,6 +83,7 @@ class Ball extends Shape {
   }
 }
 
+//defining EvilCircle subclass
 class EvilCircle extends Shape {
   constructor(x, y) {
     super(x, y, 20, 20);
@@ -131,6 +139,7 @@ class EvilCircle extends Shape {
       }
         if (distance < this.size + ball.size) {
           ball.exists = false;
+          score--;
         }
       }
     }
@@ -162,6 +171,7 @@ function loop() {
     ball.draw();
     ball.update();
     ball.collisionDetect();
+    score++;
     }
     evilCircle.draw();
     evilCircle.checkBounds();
@@ -170,5 +180,7 @@ function loop() {
 
   requestAnimationFrame(loop);
 }
+
+score.innerhtml = "Ball count: " + score;
 
 loop();
